@@ -1,0 +1,72 @@
+﻿<Window x:Class="ChakChittak.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChakChittak"
+        mc:Ignorable="d"
+           Title="MainWindow" Height="450" Width="600">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="User:"
+                   Margin="0 10 0 0">
+
+                </Label>
+                <Label Content="User:"
+                    Margin="0 10 0 0"
+                       x:Name="user_name_only"
+                       Visibility="Collapsed">
+
+                </Label>
+                <TextBox x:Name="user"
+                     Height="30"
+                         
+                     Margin="0 10 0 0"
+                   Width="250"/>
+                <Label  Visibility="Collapsed"
+                    x:Name="status_login"
+                    Height="30"
+                    Content="Connecting..."
+                    Margin="0 10 0 0"
+                   Width="250">
+
+                </Label>
+                <Button x:Name="login"
+                    Click="log_in"
+                    Margin="30 10 0 0"
+                    Height="30"
+                    Content="Log in"
+                    Width="50">
+
+                </Button>
+
+            </StackPanel>
+            <ListBox Height="300"
+                     x:Name="mychat"
+                     Margin="5"
+                     BorderBrush="Black"
+                     BorderThickness="1">
+
+            </ListBox>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Message:">
+
+                </Label>
+
+
+
+                <TextBox x:Name="MessageTextBox"
+                     Height="30"
+                   Width="450"/>
+                <Button Margin="10 0 0 0"
+                    Width="70"
+                Content="Send" Click="SendMessage" />
+            </StackPanel>
+
+
+        </StackPanel>
+        <!--<Button Content="Start Recording" Click="StartRecording_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    <Button Content="Stop Recording" Click="StopRecording_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0" />-->
+    </Grid>
+</Window>
