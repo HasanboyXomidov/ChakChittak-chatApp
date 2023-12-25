@@ -5,68 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChakChittak"
         mc:Ignorable="d"
-           Title="MainWindow" Height="450" Width="600">
-    <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="User:"
-                   Margin="0 10 0 0">
-
-                </Label>
-                <Label Content="User:"
-                    Margin="0 10 0 0"
-                       x:Name="user_name_only"
-                       Visibility="Collapsed">
-
-                </Label>
-                <TextBox x:Name="user"
-                     Height="30"
-                         
-                     Margin="0 10 0 0"
-                   Width="250"/>
-                <Label  Visibility="Collapsed"
-                    x:Name="status_login"
-                    Height="30"
-                    Content="Connecting..."
-                    Margin="0 10 0 0"
-                   Width="250">
-
-                </Label>
-                <Button x:Name="login"
-                    Click="log_in"
-                    Margin="30 10 0 0"
-                    Height="30"
-                    Content="Log in"
-                    Width="50">
-
-                </Button>
-
-            </StackPanel>
-            <ListBox Height="300"
-                     x:Name="mychat"
-                     Margin="5"
-                     BorderBrush="Black"
-                     BorderThickness="1">
-
-            </ListBox>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Message:">
-
-                </Label>
-
-
-
-                <TextBox x:Name="MessageTextBox"
-                     Height="30"
-                   Width="450"/>
-                <Button Margin="10 0 0 0"
-                    Width="70"
-                Content="Send" Click="SendMessage" />
-            </StackPanel>
-
-
+        Loaded="Window_Loaded"
+    Title="MainWindow" Height="600" Width="800">
+    <Grid Background="#FFB534">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Margin="20 0"
+            Orientation="Horizontal">
+            <Border>
+                <TextBox Height="45"
+                         x:Name="tbUserName"
+                         Width="220"
+                         FontSize="18"
+                         Foreground="Black">
+                
+                </TextBox>
+                
+            </Border>
+            <Button Height="45"
+                    FontSize="18"
+                    Width="100"
+                    x:Name="btnLogin" Margin="10 0"
+                    FontWeight="SemiBold"
+                    Click="btnLogin_Click">
+                Login
+            </Button>
         </StackPanel>
-        <!--<Button Content="Start Recording" Click="StartRecording_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
-    <Button Content="Stop Recording" Click="StopRecording_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0" />-->
+        <Border Margin="20 5 20 20"
+                Grid.Row="1"
+            Background="#FBF6EE"
+            CornerRadius="10">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer Grid.Row="0"
+                          Margin="15">
+                    <StackPanel x:Name="spMessages"                                
+                        >
+
+                    </StackPanel>
+                </ScrollViewer>
+                <Border Grid.Row="1"
+                        Visibility="Collapsed"
+                        x:Name="brMessage"
+                    Margin="5"
+                    Background="#C1F2B0"
+                    BorderBrush="#C1F2B0"
+                    BorderThickness="5"
+                    CornerRadius="25">
+
+                    <TextBox Margin="5"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         x:Name="tbMessage"
+                         Cursor="IBeam"
+                         Foreground="#65B741"
+                         FontSize="18"
+                         VerticalAlignment="Center"
+                         PreviewKeyDown="pkdEnterPressed" 
+                         TextChanged="tbMessage_TextChanged"
+                         >
+
+                    </TextBox>
+                </Border>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

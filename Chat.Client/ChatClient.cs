@@ -38,7 +38,7 @@ namespace Chat.Client
             if (!_started)
                 throw new InvalidOperationException("Client not started");
             var msg = new Message(_user!, message);
-            await this._hubConnection.SendAsync("SendMessage", message);
+            await this._hubConnection.SendAsync("SendMessage", msg);
         }
 
         public async Task StartAsync(Users users)
