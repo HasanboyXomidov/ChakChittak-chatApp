@@ -5,21 +5,38 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ChakChittak.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="150"
+             d:DesignHeight="80" d:DesignWidth="150"
              Margin="5 5 0 0">
     <Grid Width="150"
+          MaxWidth="150"
           HorizontalAlignment="Left">
         <Border Background="#65B741"
                 CornerRadius="10"
                 >
-            <Label x:Name="lblMessageWord"
-                   Foreground="#FBF6EE"
-                   Content="Hi Dear It's me"
-                   HorizontalAlignment="Center"
-                   Margin="5"
-                   VerticalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="lblUserName"
+                       FontSize="16"
+                       Foreground="#FFB534"
+                       Content="Hasanboy"
+                       Grid.Row="0">
+                    
+                </Label>
+                <TextBlock x:Name="lblMessageWord"
+                           Grid.Row="1"
+                           FontSize="18"
+                       Foreground="#FBF6EE"
+                       TextWrapping="Wrap"
+                       Text="Hi dear it's me"
+                       HorizontalAlignment="Center"
+                       Margin="3"
+                       VerticalAlignment="Center">
                 
-            </Label>
+                </TextBlock>
+            </Grid>
         </Border> 
     </Grid>
 </UserControl>

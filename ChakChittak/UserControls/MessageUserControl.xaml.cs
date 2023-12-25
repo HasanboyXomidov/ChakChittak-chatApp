@@ -27,7 +27,8 @@ namespace ChakChittak.UserControls
         }
         public void SetData(Message message)
         {
-            lblMessageWord.Content = message.Text;
+            lblUserName.Content = message.Sender.Name;
+            lblMessageWord.Text = message.Text;
         }
     }
 }

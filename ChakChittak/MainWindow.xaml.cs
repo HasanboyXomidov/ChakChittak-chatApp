@@ -52,6 +52,10 @@ namespace ChakChittak
                     Messages.Add(message);
                     MessageUserControl messageUserControl = new MessageUserControl();
                     messageUserControl.SetData(message);
+                    if(message.Sender.Name == CurrentUsername)
+                    {
+                        messageUserControl.HorizontalAlignment = HorizontalAlignment.Right;
+                    }
                     spMessages.Children.Add(messageUserControl);
                 });
 
