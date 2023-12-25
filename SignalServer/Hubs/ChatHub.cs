@@ -19,6 +19,10 @@ namespace SignalServer.Hubs
             }
             _users.Add(id, users);
             await Clients.Others.SendAsync("Connected", users);
+
+            var msg = new Message(users, $"{users.Name} joined the chat");
+            await Clients.Others.SendAsync("ReceiveMessage", msg);
+            await Clients.Others.SendAsync("Connected", users);
         }
         public IEnumerable<Users> GetOnlineUsers()
         {
@@ -36,5 +40,6 @@ namespace SignalServer.Hubs
             await Clients.Others.SendAsync("ReceiveMessage",msg);
             await Clients.Others.SendAsync("Disconnected", users);
         }
+        
     }
 }

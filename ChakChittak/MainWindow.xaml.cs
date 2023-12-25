@@ -42,12 +42,12 @@ namespace ChakChittak
         public MainWindow() 
         { 
             InitializeComponent();
-            _client = new ChatClient("http://localhost:5004/mychat");
+            _client = new ChatClient("http://192.168.0.63:5004/mychat");
             tbUserName.Focus();
 
             _client.OnMessageReceived += (s, message) =>
             {
-                Application.Current.Dispatcher.Invoke(() =>
+                Dispatcher.Invoke(() =>
                 {
                     Messages.Add(message);
                     MessageUserControl messageUserControl = new MessageUserControl();
@@ -59,10 +59,6 @@ namespace ChakChittak
                     spMessages.Children.Add(messageUserControl);
                 });
 
-                //Messages.Add(message);
-                //MessageUserControl messageUserControl = new MessageUserControl();
-                //messageUserControl.SetData(message);
-                //spMessages.Children.Add(messageUserControl);
             };
 
         }
