@@ -8,6 +8,7 @@ namespace ChatCore
 {
     public class Message
     {
+        public long Id { get; set; }    
         public Message(Users sender , string text)
         {
             Sender = sender;

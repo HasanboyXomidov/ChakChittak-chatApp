@@ -1,4 +1,5 @@
-﻿using ChatCore;
+﻿using Chat.DataAcces.Data;
+using ChatCore;
 using Microsoft.AspNetCore.SignalR;
 
 namespace SignalServer.Hubs
@@ -40,6 +41,13 @@ namespace SignalServer.Hubs
             await Clients.Others.SendAsync("ReceiveMessage",msg);
             await Clients.Others.SendAsync("Disconnected", users);
         }
-        
+
+        // For database 
+        public async Task RefreshEmployees(List<ChatMessage> employees)
+        {
+
+            await Clients.All.SendAsync("RefreshEmployees", employees);
+        }
+
     }
 }
